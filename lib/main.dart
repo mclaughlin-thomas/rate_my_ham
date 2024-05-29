@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rate_my_ham/pages/terms_welcome.dart';
+import 'package:rate_my_ham/pages/main_page.dart';
+import 'package:rate_my_ham/pages/user_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TermsWelcome()
-      
+      home: TermsWelcome(),
+      routes: {
+        '/terms': (context) => TermsWelcome(),
+        '/main': (context) => MainPage(),
+        '/user': (context) => UserPage(),
+      },
     );
   }
 }
