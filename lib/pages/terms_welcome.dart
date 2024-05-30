@@ -8,6 +8,7 @@ class TermsWelcome extends StatelessWidget {
     return Scaffold(
       //appBar: AppBar( title: const Text('Terms and Conditions'),),
       backgroundColor: Colors.pink[50],
+      
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
