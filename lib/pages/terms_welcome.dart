@@ -49,7 +49,7 @@ class TermsWelcome extends StatelessWidget {
                       ),
                       SizedBox(height: 55), // Adjust the spacing between the two text widgets
                       Text(
-                        "This app was created for my girlfriend and our kitten, Ham, whom I love both dearly",
+                        "This app was created for my girlfriend and our kitten, Ham, whom I love both dearly.",
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,
