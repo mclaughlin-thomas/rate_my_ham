@@ -45,13 +45,13 @@ class TermsWelcome extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 16,
+                          fontSize: 15.7,
 
                         ),
                       ),
                       //SizedBox(height: 55), // Adjust the spacing between the two text widgets
                       Container(
-                        height: 105,
+                        height: 120,
                         width: 200,
                         child:
                           Image.asset('lib/images/kittenPlay.png')
@@ -61,7 +61,7 @@ class TermsWelcome extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 15,
+                          fontSize: 14.3,
                         ),
                       ),
                     ],
