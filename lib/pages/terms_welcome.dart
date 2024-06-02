@@ -42,14 +42,23 @@ class TermsWelcome extends StatelessWidget {
                       SizedBox(height: 10), // Adjust the spacing between the two text widgets
                       Text(
                         "Discover your purrfect match with Rate My Ham, the ultimate Tinder-style app for kitten lovers! Swipe right on the kittens you love and left on the kittens you like (because all kittens here are winners)! Browse through currated photos of cute Ham and allow Rate My Ham to collect your insights on the Ham pictures you enjoy most. Rate My Ham is the easiest and most fun way to view pictures of Ham!",
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 17,
+                          fontSize: 16,
+
                         ),
                       ),
-                      SizedBox(height: 55), // Adjust the spacing between the two text widgets
+                      //SizedBox(height: 55), // Adjust the spacing between the two text widgets
+                      Container(
+                        height: 105,
+                        width: 200,
+                        child:
+                          Image.asset('lib/images/kittenPlay.png')
+                      ),
                       Text(
                         "This app was created for my girlfriend and our kitten, Ham, whom I love both dearly.",
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,
