@@ -78,6 +78,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
+  flutter_swipable:
+    dependency: "direct main"
+    description:
+      name: flutter_swipable
+      sha256: a341e0a7ea7a0d3a6efc753e0d0608462e702b01562cb3b0768c7d5fbb86d033
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
