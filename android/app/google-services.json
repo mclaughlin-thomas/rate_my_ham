@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1095702844298",
+    "project_id": "ratemyham",
+    "storage_bucket": "ratemyham.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095702844298:android:5f0ef9850869fee967ee73",
+        "android_client_info": {
+          "package_name": "com.example.rate_my_ham"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC5XxXL9QJFBi7VTDvzS2E2W6nhnggK0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
