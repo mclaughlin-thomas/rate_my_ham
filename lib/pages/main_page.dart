@@ -12,8 +12,8 @@ class MainPage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          height: 300,
-          width: 300,
+          height: 500,
+          width: 320,
           child: Stack(
             children: [
               TinderCard(color: Colors.red),
