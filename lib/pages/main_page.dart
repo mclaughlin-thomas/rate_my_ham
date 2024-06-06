@@ -16,9 +16,10 @@ class MainPage extends StatelessWidget {
           width: 320,
           child: Stack(
             children: [
-              TinderCard(color: Colors.red),
-              TinderCard(color: Colors.green),
-              TinderCard(color: Colors.blue),
+              TinderCard(imagePath: 'lib/images/emiham.jpg'),
+              TinderCard(imagePath: 'lib/images/strangeham.jpg'),
+              TinderCard(imagePath: 'lib/images/ham.jpg'),
+              TinderCard(imagePath: 'lib/images/closeham.jpg'),
             ],
           ),
         )
