@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rate_my_ham/pages/terms_welcome.dart';
 import 'package:rate_my_ham/pages/main_page.dart';
 import 'package:rate_my_ham/pages/user_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
