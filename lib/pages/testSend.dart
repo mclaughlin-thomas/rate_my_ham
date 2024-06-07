@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rate_my_ham/services/firestore.dart';
-
+import 'package:rate_my_ham/services/firestore.dart'; //FB
+ 
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
 
@@ -10,7 +10,7 @@ class MyWidget extends StatefulWidget {
 
 class _MyWidgetState extends State<MyWidget> {
 
-  final FireStoreService fireStoreService = FireStoreService();
+  final FireStoreService fireStoreService = FireStoreService(); //FB
 
   final TextEditingController textController = TextEditingController();
 
@@ -26,7 +26,7 @@ class _MyWidgetState extends State<MyWidget> {
           //button sends
           ElevatedButton(
             onPressed: () {
-              fireStoreService.createReview("picture1", textController.text);
+              fireStoreService.createReview("picture1", textController.text); //FB
 
               //clear the text
               textController.clear();
