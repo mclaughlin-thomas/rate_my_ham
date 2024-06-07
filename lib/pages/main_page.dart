@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:rate_my_ham/util/tinder_card.dart';
 
 class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+  //const MainPage({super.key});
+  //final String user_Name;
+
+  //MainPage({required this.user_Name});
 
   @override
   Widget build(BuildContext context) {
+    final String user_Name = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       backgroundColor: Colors.pink[50],
       
@@ -59,10 +63,10 @@ class MainPage extends StatelessWidget {
                       width: 320,
                       child: Stack(
                         children: [
-                          TinderCard(imagePath: 'lib/images/emiham.jpg', userName: 'Emi'),
-                          TinderCard(imagePath: 'lib/images/strangeham.jpg' , userName: 'Mike'),
-                          TinderCard(imagePath: 'lib/images/ham.jpg' , userName: 'Joe'),
-                          TinderCard(imagePath: 'lib/images/closeham.jpg' , userName: 'Terry'),
+                          TinderCard(imagePath: 'lib/images/emiham.jpg', userName: user_Name),
+                          TinderCard(imagePath: 'lib/images/strangeham.jpg' , userName: user_Name),
+                          TinderCard(imagePath: 'lib/images/ham.jpg' , userName: user_Name),
+                          TinderCard(imagePath: 'lib/images/closeham.jpg' , userName: user_Name),
                         ],
                       ),
                     ),
