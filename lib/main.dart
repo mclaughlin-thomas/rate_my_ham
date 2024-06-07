@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rate_my_ham/pages/terms_welcome.dart';
 import 'package:rate_my_ham/pages/main_page.dart';
 import 'package:rate_my_ham/pages/user_page.dart';
+import 'package:rate_my_ham/pages/testSend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() async {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TermsWelcome(),
+      home: MyWidget(),
       routes: {
         '/terms': (context) => TermsWelcome(),
         '/main': (context) => MainPage(),
