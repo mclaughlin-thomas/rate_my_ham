@@ -1,20 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swipable/flutter_swipable.dart';
+import 'package:rate_my_ham/services/firestore.dart'; //FB
+
+
 
 class TinderCard extends StatelessWidget {
   final String imagePath; // Replace with String for image path
+  final String userName; // Replace with String for name
+  final FireStoreService fireStoreService = FireStoreService(); //FB
 
-  TinderCard({required this.imagePath});
+
+  TinderCard({required this.imagePath, required this.userName});
+
+
+  String getLastPartOfPath(String path) {
+    return path.split('/').last;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Swipable(
       onSwipeRight: (finalPosition) {
         print(' Swiped right ');
+        fireStoreService.createReview(getLastPartOfPath(imagePath), userName, "love"); //FB
         print(' image was loved ');
+
       },
       onSwipeLeft: (finalPosition) {
         print(' Swiped left ');
+        fireStoreService.createReview(getLastPartOfPath(imagePath), userName, "like"); //FB
         print(' image was liked ');
       },
       verticalSwipe: false,

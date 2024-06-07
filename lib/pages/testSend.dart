@@ -26,7 +26,7 @@ class _MyWidgetState extends State<MyWidget> {
           //button sends
           ElevatedButton(
             onPressed: () {
-              fireStoreService.createReview("picture1", textController.text); //FB
+              //fireStoreService.createReview("picture1", textController.text); //FB
 
               //clear the text
               textController.clear();

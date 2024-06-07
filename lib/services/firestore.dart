@@ -5,9 +5,10 @@ class FireStoreService{
   final CollectionReference reviews = FirebaseFirestore.instance.collection('reviews');
 
   //create: send review to firestore
-  Future<void> createReview(String file_name, String review) {
+  Future<void> createReview(String file_name, String user_name, String review) {
     return reviews.add({
       'file_name': file_name,
+      'user_name': user_name,
       'review': review,
       'timestamp': Timestamp.now(),
     });

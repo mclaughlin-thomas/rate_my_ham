@@ -59,10 +59,10 @@ class MainPage extends StatelessWidget {
                       width: 320,
                       child: Stack(
                         children: [
-                          TinderCard(imagePath: 'lib/images/emiham.jpg'),
-                          TinderCard(imagePath: 'lib/images/strangeham.jpg'),
-                          TinderCard(imagePath: 'lib/images/ham.jpg'),
-                          TinderCard(imagePath: 'lib/images/closeham.jpg'),
+                          TinderCard(imagePath: 'lib/images/emiham.jpg', userName: 'Emi'),
+                          TinderCard(imagePath: 'lib/images/strangeham.jpg' , userName: 'Mike'),
+                          TinderCard(imagePath: 'lib/images/ham.jpg' , userName: 'Joe'),
+                          TinderCard(imagePath: 'lib/images/closeham.jpg' , userName: 'Terry'),
                         ],
                       ),
                     ),
