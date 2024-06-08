@@ -4,7 +4,6 @@ import 'package:rate_my_ham/pages/terms_welcome.dart';
 import 'package:rate_my_ham/pages/main_page.dart';
 import 'package:rate_my_ham/pages/info_page.dart';
 import 'package:rate_my_ham/pages/select_user_name.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

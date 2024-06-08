@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:rate_my_ham/util/tinder_card.dart';
-
-
+import 'package:rate_my_ham/services/firestore.dart'; //FB
 
 class MainPage extends StatelessWidget {
+  final FireStoreService fireStoreService = FireStoreService(); //FB
+
+  String getLastPartOfPath(String path) {
+    return path.split('/').last;
+  }
+
   @override
   Widget build(BuildContext context) {
     final String user_Name = ModalRoute.of(context)!.settings.arguments as String;
+    final List<String> imagePaths = [
+      'lib/images/emiham.jpg',
+      'lib/images/strangeham.jpg',
+      'lib/images/ham.jpg',
+      'lib/images/closeham.jpg'
+    ];
+    final String currentImagePath = imagePaths.last; // Change logic based on your needs
+
     return Scaffold(
       backgroundColor: Colors.pink[50],
       body: Center(
@@ -31,7 +44,7 @@ class MainPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
-                            icon: Icon(Icons.data_exploration_rounded ),
+                            icon: Icon(Icons.data_exploration_rounded),
                             iconSize: 50.0,
                             color: Colors.black,
                             onPressed: () {},
@@ -42,10 +55,7 @@ class MainPage extends StatelessWidget {
                             iconSize: 50.0,
                             color: Colors.black,
                             onPressed: () {
-                              Navigator.pushNamed(
-                                context,
-                                '/info'
-                              );
+                              Navigator.pushNamed(context, '/info');
                             },
                           ),
                         ],
@@ -55,12 +65,9 @@ class MainPage extends StatelessWidget {
                         height: 500,
                         width: 320,
                         child: Stack(
-                          children: [
-                            TinderCard(imagePath: 'lib/images/emiham.jpg', userName: user_Name), //last picture
-                            TinderCard(imagePath: 'lib/images/strangeham.jpg' , userName: user_Name),
-                            TinderCard(imagePath: 'lib/images/ham.jpg' , userName: user_Name),
-                            TinderCard(imagePath: 'lib/images/closeham.jpg' , userName: user_Name), //first picture
-                          ],
+                          children: imagePaths.reversed.map((imagePath) {
+                            return TinderCard(imagePath: imagePath, userName: user_Name);
+                          }).toList(),
                         ),
                       ),
                       SizedBox(height: 20), // Add some space between the stack and the buttons
@@ -70,14 +77,16 @@ class MainPage extends StatelessWidget {
                           IconButton(
                             icon: Icon(Icons.thumb_down, color: Colors.red, size: 50.0),
                             onPressed: () {
-                              // Handle thumbs down action
+                              fireStoreService.createReview(getLastPartOfPath(currentImagePath), user_Name, "stinkny");
+                              print(' image was stinky ');
                             },
                           ),
                           SizedBox(width: 50),
                           IconButton(
                             icon: Icon(Icons.thumb_up, color: Colors.green, size: 50.0),
                             onPressed: () {
-                              // Handle thumbs up action
+                              fireStoreService.createReview(getLastPartOfPath(currentImagePath), user_Name, "super-love");
+                              print(' image was super-loved ');
                             },
                           ),
                         ],
@@ -89,8 +98,6 @@ class MainPage extends StatelessWidget {
             ),
           ],
         ),
-        // add two buttons here 
-        
       ),
     );
   }
