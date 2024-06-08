@@ -31,7 +31,7 @@ class MainPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
-                            icon: Icon(Icons.account_circle),
+                            icon: Icon(Icons.data_exploration_rounded ),
                             iconSize: 50.0,
                             color: Colors.black,
                             onPressed: () {},
