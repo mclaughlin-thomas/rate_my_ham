@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SelectUserName(),
+      home: TermsWelcome(),
       routes: {
         '/terms': (context) => TermsWelcome(),
         '/main': (context) => MainPage(),

@@ -84,7 +84,7 @@ class TermsWelcome extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/main');
+                    Navigator.pushNamed(context, '/select_user_name');
                   },
                 ),
               ],

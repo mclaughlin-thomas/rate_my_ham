@@ -9,40 +9,47 @@ class SelectUserName extends StatelessWidget {
     final TextEditingController _controller = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.pink[50],
-      appBar: AppBar(
-        title: const Text('SelectUserName'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              controller: _controller,
-              decoration: const InputDecoration(
-                labelText: 'Enter your name',
-                border: OutlineInputBorder(),
-              ),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: CustomPaint(
+              painter: CirclePainter(),
             ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                String user_Name = _controller.text;
-                Navigator.pushNamed(
-                  context,
-                  '/main',
-                  arguments: user_Name,
-                );
-              },
-              child: const Text('OK'),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                  controller: _controller,
+                  decoration: const InputDecoration(
+                    labelText: 'Enter your name',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    String user_name = _controller.text;
+                    Navigator.pushNamed(
+                      context,
+                      '/main',
+                      arguments: user_name,
+                    );
+                  },
+                  child: const Text('OK'),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       
     );
   }
 }
+
 
 class CirclePainter extends CustomPainter {
   @override

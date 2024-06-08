@@ -1,83 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:rate_my_ham/util/tinder_card.dart';
 
+
+
 class MainPage extends StatelessWidget {
-  //const MainPage({super.key});
-  //final String user_Name;
-
-  //MainPage({required this.user_Name});
-
   @override
   Widget build(BuildContext context) {
     final String user_Name = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       backgroundColor: Colors.pink[50],
-      
-      
-      // appBar: AppBar(
-      //   title: const Text('Main Page'),
-      // ),
       body: Center(
-        child: Stack( // Use Stack for layering
+        child: Stack(
           children: [
-            // Background with CustomPainter
             CustomPaint(
               painter: CirclePainter(),
               child: Container(
-                color: Colors.transparent, // Allow painting to show through
-                width: double.infinity, // Fill entire width
-                height: double.infinity, // Fill entire height
+                color: Colors.transparent,
+                width: double.infinity,
+                height: double.infinity,
               ),
             ),
             Center(
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 50.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: Icon(Icons.account_circle), // replace with your desired icon
-                          iconSize: 50.0,
-                          color: Colors.black,
-                          onPressed: () {
-                            // Add your navigation code here
-                          },
-                        ),
-                        SizedBox(width: 1), // Add some space between the buttons
-                        IconButton(
-                          icon: Icon(Icons.info_rounded), // question mark icon
-                          iconSize: 50.0,
-                          color: Colors.black,
-                          onPressed: () {
-                            // Add your navigation code here
-                          },
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 30),
-                    Container(
-                      height: 500,
-                      width: 320,
-                      child: Stack(
+                child: SingleChildScrollView( // Wrap your Column with SingleChildScrollView
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          TinderCard(imagePath: 'lib/images/emiham.jpg', userName: user_Name),
-                          TinderCard(imagePath: 'lib/images/strangeham.jpg' , userName: user_Name),
-                          TinderCard(imagePath: 'lib/images/ham.jpg' , userName: user_Name),
-                          TinderCard(imagePath: 'lib/images/closeham.jpg' , userName: user_Name),
+                          IconButton(
+                            icon: Icon(Icons.account_circle),
+                            iconSize: 50.0,
+                            color: Colors.black,
+                            onPressed: () {},
+                          ),
+                          SizedBox(width: 1),
+                          IconButton(
+                            icon: Icon(Icons.info_rounded),
+                            iconSize: 50.0,
+                            color: Colors.black,
+                            onPressed: () {},
+                          ),
                         ],
                       ),
-                    ),
-                  ],
+                      SizedBox(height: 30),
+                      Container(
+                        height: 500,
+                        width: 320,
+                        child: Stack(
+                          children: [
+                            TinderCard(imagePath: 'lib/images/emiham.jpg', userName: user_Name),
+                            TinderCard(imagePath: 'lib/images/strangeham.jpg' , userName: user_Name),
+                            TinderCard(imagePath: 'lib/images/ham.jpg' , userName: user_Name),
+                            TinderCard(imagePath: 'lib/images/closeham.jpg' , userName: user_Name),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ],
         ),
       ),
-      
     );
   }
 }
