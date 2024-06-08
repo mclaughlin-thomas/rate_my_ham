@@ -22,7 +22,7 @@ class MainPage extends StatelessWidget {
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 50.0),
+                padding: const EdgeInsets.only(bottom: 5.0),
                 child: SingleChildScrollView( // Wrap your Column with SingleChildScrollView
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -50,18 +50,37 @@ class MainPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 30),
+                      SizedBox(height: 20),
                       Container(
                         height: 500,
                         width: 320,
                         child: Stack(
                           children: [
-                            TinderCard(imagePath: 'lib/images/emiham.jpg', userName: user_Name),
+                            TinderCard(imagePath: 'lib/images/emiham.jpg', userName: user_Name), //last picture
                             TinderCard(imagePath: 'lib/images/strangeham.jpg' , userName: user_Name),
                             TinderCard(imagePath: 'lib/images/ham.jpg' , userName: user_Name),
-                            TinderCard(imagePath: 'lib/images/closeham.jpg' , userName: user_Name),
+                            TinderCard(imagePath: 'lib/images/closeham.jpg' , userName: user_Name), //first picture
                           ],
                         ),
+                      ),
+                      SizedBox(height: 20), // Add some space between the stack and the buttons
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.thumb_down, color: Colors.red, size: 50.0),
+                            onPressed: () {
+                              // Handle thumbs down action
+                            },
+                          ),
+                          SizedBox(width: 50),
+                          IconButton(
+                            icon: Icon(Icons.thumb_up, color: Colors.green, size: 50.0),
+                            onPressed: () {
+                              // Handle thumbs up action
+                            },
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -70,6 +89,8 @@ class MainPage extends StatelessWidget {
             ),
           ],
         ),
+        // add two buttons here 
+        
       ),
     );
   }
