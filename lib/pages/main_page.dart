@@ -41,7 +41,12 @@ class MainPage extends StatelessWidget {
                             icon: Icon(Icons.info_rounded),
                             iconSize: 50.0,
                             color: Colors.black,
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                '/info'
+                              );
+                            },
                           ),
                         ],
                       ),

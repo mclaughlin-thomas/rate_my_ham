@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/terms': (context) => TermsWelcome(),
         '/main': (context) => MainPage(),
-        '/user': (context) => InfoPage(),
+        '/info': (context) => InfoPage(),
         '/select_user_name': (context) => SelectUserName(),
       },
     );
