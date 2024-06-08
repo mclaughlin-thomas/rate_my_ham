@@ -50,7 +50,7 @@ class MainPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 10),
                       Container(
                         height: 500,
                         width: 320,
