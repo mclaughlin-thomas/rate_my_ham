@@ -11,7 +11,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  late String imageUrl;
   late String imageUrl1;
   late String imageUrl2;
   late String imageUrl3;
@@ -21,6 +20,7 @@ class _MainPageState extends State<MainPage> {
   late String imageUrl7;
   late String imageUrl8;
   late String imageUrl9;
+  late String imageUrl10;
   
 
   final storage = FirebaseStorage.instance;
@@ -29,7 +29,6 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     super.initState();
     // set the initial value of the image url to empty string
-    imageUrl = '';
     imageUrl1 = '';
     imageUrl2 = '';
     imageUrl3 = '';
@@ -39,13 +38,13 @@ class _MainPageState extends State<MainPage> {
     imageUrl7 = '';
     imageUrl8 = '';
     imageUrl9 = '';
+    imageUrl10 = '';
     //retrieve the image url from firebase storage
     getImageUrl();
   }
 
   Future<void> getImageUrl() async {
     //get the reference to the mage file in Firebase storage
-    final ref = storage.ref().child('ham.jpg');
     final ref1 = storage.ref().child('emiham.jpg');
     final ref2 = storage.ref().child('ham.jpg');
     final ref3 = storage.ref().child('ham.jpg');
@@ -55,8 +54,8 @@ class _MainPageState extends State<MainPage> {
     final ref7 = storage.ref().child('ham.jpg');
     final ref8 = storage.ref().child('ham.jpg');
     final ref9 = storage.ref().child('ham.jpg');
+    final ref10 = storage.ref().child('ham.jpg');
 
-    final url = await ref.getDownloadURL();
     final url1 = await ref1.getDownloadURL();
     final url2 = await ref2.getDownloadURL();
     final url3 = await ref3.getDownloadURL();
@@ -66,10 +65,10 @@ class _MainPageState extends State<MainPage> {
     final url7 = await ref7.getDownloadURL();
     final url8 = await ref8.getDownloadURL();
     final url9 = await ref9.getDownloadURL();
+    final url10 = await ref9.getDownloadURL();
     
     //Get the imageUrl to download URL
     setState(() {
-      imageUrl = url;
       imageUrl1 = url1;
       imageUrl2 = url2;
       imageUrl3 = url3;
@@ -79,6 +78,7 @@ class _MainPageState extends State<MainPage> {
       imageUrl7 = url7;
       imageUrl8 = url8;
       imageUrl9 = url9;
+      imageUrl10 = url10;
     });
   }
 
@@ -128,8 +128,8 @@ class _MainPageState extends State<MainPage> {
                         ],
                       ),
                       SizedBox(height: 20),
-                      Image(image: NetworkImage(imageUrl), height: 100, width: 100),
                       Image(image: NetworkImage(imageUrl1), height: 100, width: 100),
+                      Image(image: NetworkImage(imageUrl2), height: 100, width: 100),
                       // Container(
                       //   height: 500,
                       //   width: 320,
