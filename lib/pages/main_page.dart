@@ -1,10 +1,41 @@
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:rate_my_ham/util/tinder_card.dart';
 
 
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
+
   @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  late String imageUrl;
+
+  final storage = FirebaseStorage.instance;
+
+  @override
+  void initState() {
+    super.initState();
+    // set the initial value of the image url to empty string
+    imageUrl = '';
+    //retrieve the image url from firebase storage
+    getImageUrl();
+  }
+
+  Future<void> getImageUrl() async {
+    //get the reference to the mage file in Firebase storage
+    final ref = storage.ref().child('emiham.jpg');
+
+    final url = await ref.getDownloadURL();
+    
+    //Get the imageUrl to download URL
+    setState(() {
+      imageUrl = url;
+    });
+  }
+
   Widget build(BuildContext context) {
     final String user_Name = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
@@ -51,18 +82,19 @@ class MainPage extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: 20),
-                      Container(
-                        height: 500,
-                        width: 320,
-                        child: Stack(
-                          children: [
-                            TinderCard(imagePath: 'lib/images/emiham.jpg', userName: user_Name), //last picture
-                            TinderCard(imagePath: 'lib/images/strangeham.jpg' , userName: user_Name),
-                            TinderCard(imagePath: 'lib/images/ham.jpg' , userName: user_Name),
-                            TinderCard(imagePath: 'lib/images/closeham.jpg' , userName: user_Name), //first picture
-                          ],
-                        ),
-                      ),
+                      Image(image: NetworkImage(imageUrl), height: 500, width: 320),
+                      // Container(
+                      //   height: 500,
+                      //   width: 320,
+                      //   child: Stack(
+                      //     children: [
+                      //       TinderCard(imagePath: 'lib/images/emiham.jpg', userName: user_Name), //last picture
+                      //       TinderCard(imagePath: 'lib/images/strangeham.jpg' , userName: user_Name),
+                      //       TinderCard(imagePath: 'lib/images/ham.jpg' , userName: user_Name),
+                      //       TinderCard(imagePath: 'lib/images/closeham.jpg' , userName: user_Name), //first picture
+                      //     ],
+                      //   ),
+                      // ),
                       SizedBox(height: 20), // Add some space between the stack and the buttons
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
