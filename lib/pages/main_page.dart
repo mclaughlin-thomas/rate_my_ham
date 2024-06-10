@@ -16,11 +16,12 @@ class _MainPageState extends State<MainPage> {
   late String imageUrl2;
   late String imageUrl3;
   late String imageUrl4;
-  // late String imageUrl5;
-  // late String imageUrl6;
-  // late String imageUrl7;
-  // late String imageUrl8;
-  // late String imageUrl9;
+  late String imageUrl5;
+  late String imageUrl6;
+  late String imageUrl7;
+  late String imageUrl8;
+  late String imageUrl9;
+  
 
   final storage = FirebaseStorage.instance;
 
@@ -33,39 +34,38 @@ class _MainPageState extends State<MainPage> {
     imageUrl2 = '';
     imageUrl3 = '';
     imageUrl4 = '';
-    // imageUrl5 = '';
-    // imageUrl6 = '';
-    // imageUrl7 = '';
-    // imageUrl8 = '';
-    // imageUrl9 = '';
-    
+    imageUrl5 = '';
+    imageUrl6 = '';
+    imageUrl7 = '';
+    imageUrl8 = '';
+    imageUrl9 = '';
     //retrieve the image url from firebase storage
     getImageUrl();
   }
 
   Future<void> getImageUrl() async {
     //get the reference to the mage file in Firebase storage
-    final ref = storage.ref().child('images/ham.jpg');
-    final ref1 = storage.ref().child('images/ham.jpg');
-    final ref2 = storage.ref().child('images/ham.jpg');
-    final ref3 = storage.ref().child('images/ham.jpg');
-    final ref4 = storage.ref().child('images/ham.jpg');
-    // final ref5 = storage.ref().child('images/ham.jpg');
-    // final ref6 = storage.ref().child('images/ham.jpg');
-    // final ref7 = storage.ref().child('images/ham.jpg');
-    // final ref8 = storage.ref().child('images/ham.jpg');
-    // final ref9 = storage.ref().child('images/ham.jpg');
+    final ref = storage.ref().child('ham.jpg');
+    final ref1 = storage.ref().child('emiham.jpg');
+    final ref2 = storage.ref().child('ham.jpg');
+    final ref3 = storage.ref().child('ham.jpg');
+    final ref4 = storage.ref().child('ham.jpg');
+    final ref5 = storage.ref().child('ham.jpg');
+    final ref6 = storage.ref().child('ham.jpg');
+    final ref7 = storage.ref().child('ham.jpg');
+    final ref8 = storage.ref().child('ham.jpg');
+    final ref9 = storage.ref().child('ham.jpg');
 
     final url = await ref.getDownloadURL();
     final url1 = await ref1.getDownloadURL();
     final url2 = await ref2.getDownloadURL();
     final url3 = await ref3.getDownloadURL();
     final url4 = await ref4.getDownloadURL();
-    // final url5 = await ref.getDownloadURL();
-    // final url6 = await ref.getDownloadURL();
-    // final url7 = await ref.getDownloadURL();
-    // final url8 = await ref.getDownloadURL();
-    // final url9 = await ref.getDownloadURL();
+    final url5 = await ref5.getDownloadURL();
+    final url6 = await ref6.getDownloadURL();
+    final url7 = await ref7.getDownloadURL();
+    final url8 = await ref8.getDownloadURL();
+    final url9 = await ref9.getDownloadURL();
     
     //Get the imageUrl to download URL
     setState(() {
@@ -74,11 +74,11 @@ class _MainPageState extends State<MainPage> {
       imageUrl2 = url2;
       imageUrl3 = url3;
       imageUrl4 = url4;
-      // imageUrl = url5;
-      // imageUrl = url6;
-      // imageUrl = url7;
-      // imageUrl = url8;
-      // imageUrl = url9;
+      imageUrl5 = url5;
+      imageUrl6 = url6;
+      imageUrl7 = url7;
+      imageUrl8 = url8;
+      imageUrl9 = url9;
     });
   }
 
@@ -128,18 +128,20 @@ class _MainPageState extends State<MainPage> {
                         ],
                       ),
                       SizedBox(height: 20),
-                      Container(
-                        height: 500,
-                        width: 320,
-                        child: Stack(
-                          children: [
-                            TinderCard(imagePath: 'lib/images/emiham.jpg', userName: user_Name), //last picture
-                            TinderCard(imagePath: 'lib/images/strangeham.jpg' , userName: user_Name),
-                            TinderCard(imagePath: 'lib/images/ham.jpg' , userName: user_Name),
-                            TinderCard(imagePath: 'lib/images/closeham.jpg' , userName: user_Name), //first picture
-                          ],
-                        ),
-                      ),
+                      Image(image: NetworkImage(imageUrl), height: 100, width: 100),
+                      Image(image: NetworkImage(imageUrl1), height: 100, width: 100),
+                      // Container(
+                      //   height: 500,
+                      //   width: 320,
+                      //   child: Stack(
+                      //     children: [
+                      //       TinderCard(imagePath: 'lib/images/emiham.jpg', userName: user_Name), //last picture
+                      //       TinderCard(imagePath: 'lib/images/strangeham.jpg' , userName: user_Name),
+                      //       TinderCard(imagePath: 'lib/images/ham.jpg' , userName: user_Name),
+                      //       TinderCard(imagePath: 'lib/images/closeham.jpg' , userName: user_Name), //first picture
+                      //     ],
+                      //   ),
+                      // ),
                       SizedBox(height: 20), // Add some space between the stack and the buttons
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
