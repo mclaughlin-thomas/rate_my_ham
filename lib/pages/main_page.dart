@@ -65,7 +65,7 @@ class _MainPageState extends State<MainPage> {
     final url7 = await ref7.getDownloadURL();
     final url8 = await ref8.getDownloadURL();
     final url9 = await ref9.getDownloadURL();
-    final url10 = await ref9.getDownloadURL();
+    final url10 = await ref10.getDownloadURL();
     
     //Get the imageUrl to download URL
     setState(() {
