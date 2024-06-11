@@ -46,10 +46,9 @@ class TinderCard extends StatelessWidget {
               child: Image.network(
                 imagePath,
                 fit: BoxFit.cover,
-                // I DID NOT WRITE THE BELOW CODE
                 loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
                   if (loadingProgress == null) return child;
-                  
+
                   double? progressValue;
                   if (loadingProgress.expectedTotalBytes != null) {
                     progressValue = loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1);
@@ -64,7 +63,6 @@ class TinderCard extends StatelessWidget {
                   );
 
                 },
-                // I DID NOT WRITE THE ABOVE CODE
                 errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
                   return Center(
                     child: Icon(Icons.error)
