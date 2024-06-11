@@ -101,7 +101,7 @@ class _MainPageState extends State<MainPage> {
                               child: imageUrls.isEmpty
                                   ? Center(
                                       child: Text(
-                                        'No images left@',
+                                        'No images left!',
                                         style: TextStyle(fontSize: 24, color: Colors.black),
                                       ),
                                     )
