@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swipable/flutter_swipable.dart';
-import 'package:rate_my_ham/services/firestore.dart'; //FB
-
-
+import 'package:rate_my_ham/services/firestore.dart';
 
 class TinderCard extends StatelessWidget {
   final String imagePath;
   final String userName;
+  final VoidCallback onSwipe;
   final FireStoreService fireStoreService = FireStoreService();
 
-  TinderCard({required this.imagePath, required this.userName});
+  TinderCard({required this.imagePath, required this.userName, required this.onSwipe});
 
   String getLastPartOfPath(String path) {
     return path.split('/').last;
@@ -22,11 +21,13 @@ class TinderCard extends StatelessWidget {
         print('Swiped right');
         fireStoreService.createReview(getLastPartOfPath(imagePath), userName, "love");
         print('Image was loved');
+        onSwipe();
       },
       onSwipeLeft: (finalPosition) {
         print('Swiped left');
         fireStoreService.createReview(getLastPartOfPath(imagePath), userName, "like");
         print('Image was liked');
+        onSwipe();
       },
       verticalSwipe: false,
       child: Stack(
@@ -61,12 +62,9 @@ class TinderCard extends StatelessWidget {
                       value: progressValue,
                     ),
                   );
-
                 },
                 errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
-                  return Center(
-                    child: Icon(Icons.error)
-                  );
+                  return Center(child: Icon(Icons.error));
                 },
               ),
             ),

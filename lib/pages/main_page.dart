@@ -2,8 +2,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:rate_my_ham/util/tinder_card.dart';
 
-
-
 class MainPage extends StatefulWidget {
   @override
   State<MainPage> createState() => _MainPageState();
@@ -26,12 +24,7 @@ class _MainPageState extends State<MainPage> {
     final ref2 = storage.ref().child('ham.jpg');
     final ref3 = storage.ref().child('closeham.jpg');
     final ref4 = storage.ref().child('kittenPlay.png');
-    final ref5 = storage.ref().child('strangeham.jpg'); // first image
-    // final ref6 = storage.ref().child('ham.jpg');
-    // final ref7 = storage.ref().child('ham.jpg');
-    // final ref8 = storage.ref().child('ham.jpg');
-    // final ref9 = storage.ref().child('ham.jpg');
-    // final ref10 = storage.ref().child('ham.jpg');
+    final ref5 = storage.ref().child('strangeham.jpg');
 
     final urls = await Future.wait([
       ref1.getDownloadURL(),
@@ -39,11 +32,6 @@ class _MainPageState extends State<MainPage> {
       ref3.getDownloadURL(),
       ref4.getDownloadURL(),
       ref5.getDownloadURL(),
-      // ref6.getDownloadURL(),
-      // ref7.getDownloadURL(),
-      // ref8.getDownloadURL(),
-      // ref9.getDownloadURL(),
-      // ref10.getDownloadURL(),
     ]);
 
     await Future.wait(urls.map((url) => precacheImage(NetworkImage(url), context)));
@@ -51,6 +39,12 @@ class _MainPageState extends State<MainPage> {
     setState(() {
       imageUrls = urls;
       isLoading = false;
+    });
+  }
+
+  void handleSwipe() {
+    setState(() {
+      imageUrls.removeLast();
     });
   }
 
@@ -104,12 +98,19 @@ class _MainPageState extends State<MainPage> {
                             Container(
                               height: 500,
                               width: 320,
-                              child: Stack(
-                                children: [
-                                  for (var url in imageUrls)
-                                    TinderCard(imagePath: url, userName: user_Name),
-                                ],
-                              ),
+                              child: imageUrls.isEmpty
+                                  ? Center(
+                                      child: Text(
+                                        'No images left@',
+                                        style: TextStyle(fontSize: 24, color: Colors.black),
+                                      ),
+                                    )
+                                  : Stack(
+                                      children: [
+                                        for (var url in imageUrls)
+                                          TinderCard(imagePath: url, userName: user_Name, onSwipe: handleSwipe),
+                                      ],
+                                    ),
                             ),
                             SizedBox(height: 20),
                             Row(
@@ -141,7 +142,6 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
 
 class CirclePainter extends CustomPainter {
   @override
