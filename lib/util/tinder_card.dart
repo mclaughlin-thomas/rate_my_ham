@@ -49,13 +49,20 @@ class TinderCard extends StatelessWidget {
                 // I DID NOT WRITE THE BELOW CODE
                 loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
                   if (loadingProgress == null) return child;
+                  
+                  double? progressValue;
+                  if (loadingProgress.expectedTotalBytes != null) {
+                    progressValue = loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1);
+                  } else {
+                    progressValue = null;
+                  }
+
                   return Center(
                     child: CircularProgressIndicator(
-                      value: loadingProgress.expectedTotalBytes != null
-                          ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
-                          : null,
+                      value: progressValue,
                     ),
                   );
+
                 },
                 // I DID NOT WRITE THE ABOVE CODE
                 errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
