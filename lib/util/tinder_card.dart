@@ -11,7 +11,12 @@ class TinderCard extends StatelessWidget {
   TinderCard({required this.imagePath, required this.userName, required this.onSwipe});
 
   String getLastPartOfPath(String path) {
-    return path.split('/').last;
+    path = path.split('/').last;
+    int questionMarkIndex = path.indexOf('?');
+    if (questionMarkIndex == -1) {
+      return path; // Return the whole string if there's no '?'
+    }
+    return path.substring(0, questionMarkIndex);
   }
 
   @override
