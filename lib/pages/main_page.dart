@@ -129,7 +129,7 @@ class _MainPageState extends State<MainPage> {
                                               ),
                                             ),
                                             onPressed: () {
-                                              Navigator.pushNamed(context, '/select_user_name');
+                                              Navigator.pushNamed(context, '/analytics');
                                             },
                                           ),
                                         ],
