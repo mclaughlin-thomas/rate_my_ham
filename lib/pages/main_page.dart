@@ -20,16 +20,16 @@ class _MainPageState extends State<MainPage> {
   }
 
   Future<void> getImageUrls() async {
-    final ref1 = storage.ref().child('emiham.jpg');
-    final ref2 = storage.ref().child('ham.jpg');
-    final ref3 = storage.ref().child('closeham.jpg');
-    final ref4 = storage.ref().child('kittenPlay.png');
-    final ref5 = storage.ref().child('strangeham.jpg');
-    final ref6 = storage.ref().child('strangeham.jpg');
-    final ref7 = storage.ref().child('strangeham.jpg');
-    final ref8 = storage.ref().child('strangeham.jpg');
-    final ref9 = storage.ref().child('strangeham.jpg');
-    final ref10 = storage.ref().child('strangeham.jpg');
+    final ref1 = storage.ref().child('10.jpg');
+    final ref2 = storage.ref().child('9.jpg');
+    final ref3 = storage.ref().child('8.jpg');
+    final ref4 = storage.ref().child('7.jpg');
+    final ref5 = storage.ref().child('6.jpg');
+    final ref6 = storage.ref().child('5.jpg');
+    final ref7 = storage.ref().child('4.jpg');
+    final ref8 = storage.ref().child('3.jpg');
+    final ref9 = storage.ref().child('2.jpg');
+    final ref10 = storage.ref().child('1.jpg');
 
     final urls = await Future.wait([
       ref1.getDownloadURL(),
