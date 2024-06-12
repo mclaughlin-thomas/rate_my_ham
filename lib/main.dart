@@ -4,6 +4,7 @@ import 'package:rate_my_ham/pages/terms_welcome.dart';
 import 'package:rate_my_ham/pages/main_page.dart';
 import 'package:rate_my_ham/pages/info_page.dart';
 import 'package:rate_my_ham/pages/select_user_name.dart';
+import 'package:rate_my_ham/pages/analytics_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         '/main': (context) => MainPage(),
         '/info': (context) => InfoPage(),
         '/select_user_name': (context) => SelectUserName(),
+        '/analytics': (context) => AnalyticsPage(),
       },
     );
   }
