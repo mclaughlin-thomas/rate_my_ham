@@ -94,7 +94,7 @@ class _MainPageState extends State<MainPage> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 40),
                             Container(
                               height: 500,
                               width: 320,
@@ -113,24 +113,6 @@ class _MainPageState extends State<MainPage> {
                                     ),
                             ),
                             SizedBox(height: 20),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                  icon: Icon(Icons.thumb_down, color: Colors.red, size: 50.0),
-                                  onPressed: () {
-                                    // Handle thumbs down action
-                                  },
-                                ),
-                                SizedBox(width: 50),
-                                IconButton(
-                                  icon: Icon(Icons.thumb_up, color: Colors.green, size: 50.0),
-                                  onPressed: () {
-                                    // Handle thumbs up action
-                                  },
-                                ),
-                              ],
-                            ),
                           ],
                         ),
                       ),
