@@ -25,6 +25,11 @@ class _MainPageState extends State<MainPage> {
     final ref3 = storage.ref().child('closeham.jpg');
     final ref4 = storage.ref().child('kittenPlay.png');
     final ref5 = storage.ref().child('strangeham.jpg');
+    final ref6 = storage.ref().child('strangeham.jpg');
+    final ref7 = storage.ref().child('strangeham.jpg');
+    final ref8 = storage.ref().child('strangeham.jpg');
+    final ref9 = storage.ref().child('strangeham.jpg');
+    final ref10 = storage.ref().child('strangeham.jpg');
 
     final urls = await Future.wait([
       ref1.getDownloadURL(),
@@ -32,6 +37,11 @@ class _MainPageState extends State<MainPage> {
       ref3.getDownloadURL(),
       ref4.getDownloadURL(),
       ref5.getDownloadURL(),
+      ref6.getDownloadURL(),
+      ref7.getDownloadURL(),
+      ref8.getDownloadURL(),
+      ref9.getDownloadURL(),
+      ref10.getDownloadURL(),
     ]);
 
     await Future.wait(urls.map((url) => precacheImage(NetworkImage(url), context)));
