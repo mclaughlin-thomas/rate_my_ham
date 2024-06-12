@@ -100,9 +100,39 @@ class _MainPageState extends State<MainPage> {
                               width: 320,
                               child: imageUrls.isEmpty
                                   ? Center(
-                                      child: Text(
-                                        'No images left!',
-                                        style: TextStyle(fontSize: 24, color: Colors.black),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "No images left :(",
+                                            style: TextStyle(fontSize: 24, color: Colors.black),
+                                          ),
+                                          SizedBox(height: 40),
+                                          Text(
+                                            "Click below to view analytics of today's images !",
+                                            style: TextStyle(fontSize: 14, color: Colors.black),
+                                          ),
+                                          SizedBox(height: 15),
+                                          ElevatedButton(
+                                            child: Text(
+                                              "View Analytics !",
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                            style: ElevatedButton.styleFrom(
+                                              backgroundColor: Color.fromARGB(255, 240, 146, 224),
+                                              padding: EdgeInsets.symmetric(horizontal: 45, vertical: 15),
+                                              textStyle: TextStyle(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            onPressed: () {
+                                              Navigator.pushNamed(context, '/select_user_name');
+                                            },
+                                          ),
+                                        ],
                                       ),
                                     )
                                   : Stack(
