@@ -40,6 +40,12 @@ class SelectUserName extends StatelessWidget {
                   },
                   child: const Text('OK'),
                 ),
+                Container(
+                  height: 120,
+                  width: 200,
+                  child:
+                    Image.asset('lib/images/flower.png')
+                ),
               ],
             ),
           ),
