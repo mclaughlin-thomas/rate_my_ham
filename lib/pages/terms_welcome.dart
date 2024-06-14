@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 class TermsWelcome extends StatelessWidget {
   const TermsWelcome({super.key});
