@@ -75,13 +75,18 @@ class TermsWelcome extends StatelessWidget {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 240, 146, 224),
+                    backgroundColor: Colors.pink[100],
                     padding: EdgeInsets.symmetric(horizontal: 45, vertical: 15),
                     textStyle: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                      side: BorderSide(color: Colors.black, width: 3.0),
+                    ),
                   ),
+                  
                   onPressed: () {
                     Navigator.pushNamed(context, '/select_user_name');
                   },
