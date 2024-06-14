@@ -87,13 +87,13 @@ class _MainPageState extends State<MainPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                IconButton(
-                                  icon: Icon(Icons.data_exploration_rounded),
-                                  iconSize: 50.0,
-                                  color: Colors.black,
-                                  onPressed: () {},
-                                ),
-                                SizedBox(width: 1),
+                                // IconButton(
+                                //   icon: Icon(Icons.data_exploration_rounded),
+                                //   iconSize: 50.0,
+                                //   color: Colors.black,
+                                //   onPressed: () {},
+                                // ),
+                                // SizedBox(width: 1),
                                 IconButton(
                                   icon: Icon(Icons.info_rounded),
                                   iconSize: 50.0,
@@ -132,7 +132,7 @@ class _MainPageState extends State<MainPage> {
                                             ),
                                             
                                             style: ElevatedButton.styleFrom(
-                                              backgroundColor: Color.fromARGB(255, 240, 146, 224),
+                                              backgroundColor: Colors.pink[100],
                                               padding: EdgeInsets.symmetric(horizontal: 45, vertical: 15),
                                               textStyle: TextStyle(
                                                 fontSize: 15,
