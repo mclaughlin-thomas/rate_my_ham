@@ -4,7 +4,6 @@ class SelectUserName extends StatelessWidget {
   const SelectUserName({super.key});
 
   @override
-  
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
     return Scaffold(
@@ -19,58 +18,100 @@ class SelectUserName extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextField(
-                  controller: _controller,
-                  style: TextStyle(color: Colors.black),
-                  decoration: InputDecoration(
-                    labelText: 'Enter your name :)',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              height: 100,
+                              width: 180,
+                              child: Image.asset('lib/images/flower.png'),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 100,
+                              width: 180,
+                              child: Image.asset('lib/images/flower.png'),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 25),
+                        TextField(
+                          controller: _controller,
+                          style: TextStyle(color: Colors.black),
+                          decoration: InputDecoration(
+                            labelText: 'Enter your name :)',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black, width: 2.0),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color.fromARGB(255, 180, 167, 167), width: 2.0),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            focusColor: Colors.black,
+                            floatingLabelStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)), // Ensures the label text is black when focused
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        ElevatedButton(
+                          onPressed: () {
+                            String user_name = _controller.text;
+                            Navigator.pushNamed(
+                              context,
+                              '/main',
+                              arguments: user_name,
+                            );
+                          },
+                          child: const Text('OK'),
+                        ),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              height: 100,
+                              width: 180,
+                              child: Image.asset('lib/images/flower.png'),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 30),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 120,
+                              width: 200,
+                              child: Image.asset('lib/images/flower.png'),
+                            ),
+                          ],
+                        )
+                      ],
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 2.0),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Color.fromARGB(255, 180, 167, 167), width: 2.0),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    focusColor: Colors.black,
-                    floatingLabelStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)), // Ensures the label text is black when focused
-
                   ),
-                  
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    String user_name = _controller.text;
-                    Navigator.pushNamed(
-                      context,
-                      '/main',
-                      arguments: user_name,
-                    );
-                  },
-                  child: const Text('OK'),
-                ),
-                Container(
-                  height: 120,
-                  width: 200,
-                  child:
-                    Image.asset('lib/images/flower.png')
                 ),
               ],
             ),
           ),
         ],
       ),
-      
     );
   }
 }
-
 
 class CirclePainter extends CustomPainter {
   @override
