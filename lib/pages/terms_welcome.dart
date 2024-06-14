@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rate_my_ham/pages/select_user_name.dart';
 
 class TermsWelcome extends StatelessWidget {
   const TermsWelcome({super.key});
@@ -89,28 +88,7 @@ class TermsWelcome extends StatelessWidget {
                   ),
                   
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) => SelectUserName(),
-                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                          return Stack(
-                            children: [
-                              
-                              FadeTransition(
-                                opacity: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-                                  parent: animation,
-                                  curve: Interval(0.5, 1.0, curve: Curves.easeOut),
-                                )),
-                                child: Container(color: Colors.black),
-                              ),
-                              
-                            ],
-                          );
-                        },
-                        transitionDuration: Duration(seconds: 3),
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/select_user_name');
                   },
                 ),
               ],
