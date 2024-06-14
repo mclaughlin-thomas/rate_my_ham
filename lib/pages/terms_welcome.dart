@@ -19,12 +19,13 @@ class TermsWelcome extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black, width: 2.0),
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.pink[100],
+                  ),
                   height: 500,
                   width: 350,
-                  decoration: BoxDecoration(
-                    color: Colors.pink[100],
-                    borderRadius: BorderRadius.circular(20),
-                  ),
                   padding: EdgeInsets.all(22),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -44,8 +45,7 @@ class TermsWelcome extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 15.7,
-
+                          fontSize: 15.0,
                         ),
                       ),
                       //SizedBox(height: 55), // Adjust the spacing between the two text widgets
