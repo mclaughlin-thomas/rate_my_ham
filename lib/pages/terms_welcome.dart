@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rate_my_ham/pages/select_user_name.dart';
 
 class TermsWelcome extends StatelessWidget {
   const TermsWelcome({super.key});
@@ -48,7 +49,6 @@ class TermsWelcome extends StatelessWidget {
                           fontSize: 15.0,
                         ),
                       ),
-                      //SizedBox(height: 55), // Adjust the spacing between the two text widgets
                       Container(
                         height: 120,
                         width: 200,
@@ -88,7 +88,7 @@ class TermsWelcome extends StatelessWidget {
                   ),
                   
                   onPressed: () {
-                    Navigator.pushNamed(context, '/select_user_name');
+                    Navigator.of(context).push(_createRoute());
                   },
                 ),
               ],
@@ -96,6 +96,26 @@ class TermsWelcome extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => const SelectUserName(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(1.0, 0.0);
+        const end = Offset.zero;
+        const curve = Curves.ease;
+
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var offsetAnimation = animation.drive(tween);
+
+        return SlideTransition(
+          position: offsetAnimation,
+          child: child,
+        );
+      },
+      transitionDuration: Duration(seconds: 1), // Change this value to make it slower or faster
     );
   }
 }
