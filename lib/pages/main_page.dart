@@ -1,6 +1,8 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:rate_my_ham/util/tinder_card.dart';
+import 'package:rate_my_ham/pages/info_page.dart';
+import 'package:rate_my_ham/pages/analytics_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -87,19 +89,12 @@ class _MainPageState extends State<MainPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                // IconButton(
-                                //   icon: Icon(Icons.data_exploration_rounded),
-                                //   iconSize: 50.0,
-                                //   color: Colors.black,
-                                //   onPressed: () {},
-                                // ),
-                                // SizedBox(width: 1),
                                 IconButton(
                                   icon: Icon(Icons.info_rounded),
                                   iconSize: 50.0,
                                   color: Colors.black,
                                   onPressed: () {
-                                    Navigator.pushNamed(context, '/info');
+                                    Navigator.of(context).push(_createRoute());
                                   },
                                 ),
                               ],
@@ -144,7 +139,7 @@ class _MainPageState extends State<MainPage> {
                                               ),
                                             ),
                                             onPressed: () {
-                                              Navigator.pushNamed(context, '/analytics');
+                                              Navigator.of(context).push(_createRoute2());
                                             },
                                           ),
                                         ],
@@ -166,6 +161,46 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
       ),
+    );
+  }
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => const InfoPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(1.0, 0.0);
+        const end = Offset.zero;
+        const curve = Curves.ease;
+
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var offsetAnimation = animation.drive(tween);
+
+        return SlideTransition(
+          position: offsetAnimation,
+          child: child,
+        );
+      },
+      transitionDuration: Duration(seconds: 1), // Change this value to make it slower or faster
+    );
+  }
+
+  Route _createRoute2() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => const AnalyticsPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(1.0, 0.0);
+        const end = Offset.zero;
+        const curve = Curves.ease;
+
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var offsetAnimation = animation.drive(tween);
+
+        return SlideTransition(
+          position: offsetAnimation,
+          child: child,
+        );
+      },
+      transitionDuration: Duration(seconds: 1), // Change this value to make it slower or faster
     );
   }
 }
