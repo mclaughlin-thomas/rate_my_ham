@@ -71,11 +71,19 @@ class SelectUserName extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {
                             String user_name = _controller.text;
-                            Navigator.pushNamed(
-                              context,
-                              '/main',
-                              arguments: user_name,
-                            );
+                            Navigator.of(context).push(PageRouteBuilder(
+                              transitionDuration: Duration(seconds: 1), // Adjust the duration as needed
+                              pageBuilder: (context, animation, secondaryAnimation) => MainPage(),
+                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                return FadeTransition(
+                                  opacity: animation,
+                                  child: child,
+                                );
+                              },
+                              settings: RouteSettings(
+                                arguments: user_name,
+                              ),
+                            ));
                           },
                           child: const Text('OK'),
                         ),
