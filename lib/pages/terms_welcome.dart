@@ -1,3 +1,4 @@
+//terms_welcome.dart
 import 'package:flutter/material.dart';
 import 'package:rate_my_ham/pages/select_user_name.dart';
 
