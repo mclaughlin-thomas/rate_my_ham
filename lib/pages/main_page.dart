@@ -1,4 +1,4 @@
-//main_page.dart
+
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:rate_my_ham/util/tinder_card.dart';
@@ -13,6 +13,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   bool isLoading = true;
   List<String> imageUrls = [];
+  String _message = '';
 
   final storage = FirebaseStorage.instance;
 
@@ -58,6 +59,20 @@ class _MainPageState extends State<MainPage> {
   void handleSwipe() {
     setState(() {
       imageUrls.removeLast();
+    });
+  }
+
+  void _showMessage(String action) {
+    String message = action == 'right' ? 'Image was loved' : 'Image was liked';
+    setState(() {
+      _message = message;
+    });
+
+    // Timer to hide the message after 2 seconds
+    Future.delayed(Duration(seconds: 2), () {
+      setState(() {
+        _message = '';
+      });
     });
   }
 
@@ -126,7 +141,6 @@ class _MainPageState extends State<MainPage> {
                                                 color: Colors.black,
                                               ),
                                             ),
-                                            
                                             style: ElevatedButton.styleFrom(
                                               backgroundColor: Colors.pink[100],
                                               padding: EdgeInsets.symmetric(horizontal: 45, vertical: 15),
@@ -149,11 +163,29 @@ class _MainPageState extends State<MainPage> {
                                   : Stack(
                                       children: [
                                         for (var url in imageUrls)
-                                          TinderCard(imagePath: url, userName: user_Name, onSwipe: handleSwipe),
+                                          TinderCard(imagePath: url, userName: user_Name, onSwipe: () {
+                                            handleSwipe();
+                                            _showMessage("Image was liked"); // or "Image was loved"
+                                          }),
                                       ],
                                     ),
                             ),
                             SizedBox(height: 20),
+                            AnimatedOpacity(
+                              opacity: _message.isNotEmpty ? 1.0 : 0.0,
+                              duration: Duration(milliseconds: 500),
+                              child: Container(
+                                padding: EdgeInsets.all(10.0),
+                                decoration: BoxDecoration(
+                                  color: Colors.black.withOpacity(0.7),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                child: Text(
+                                  _message,
+                                  style: TextStyle(color: Colors.white, fontSize: 16.0),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
