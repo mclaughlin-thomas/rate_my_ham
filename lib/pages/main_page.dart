@@ -1,4 +1,3 @@
-
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:rate_my_ham/util/tinder_card.dart';
@@ -56,19 +55,20 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  void handleSwipe() {
+  void handleSwipe(String action) {
     setState(() {
       imageUrls.removeLast();
+      _showMessage(action);
     });
   }
 
   void _showMessage(String action) {
-    String message = action == 'right' ? 'Image was loved' : 'Image was liked';
+    String message = action == 'right' ? 'Image was loved <3' : 'Image was liked :)';
     setState(() {
       _message = message;
     });
 
-    // Timer to hide the message after 2 seconds
+    // Timer to hide the message after 1 seconds
     Future.delayed(Duration(seconds: 2), () {
       setState(() {
         _message = '';
@@ -163,10 +163,7 @@ class _MainPageState extends State<MainPage> {
                                   : Stack(
                                       children: [
                                         for (var url in imageUrls)
-                                          TinderCard(imagePath: url, userName: user_Name, onSwipe: () {
-                                            handleSwipe();
-                                            _showMessage("Image was liked"); // or "Image was loved"
-                                          }),
+                                          TinderCard(imagePath: url, userName: user_Name, onSwipe: handleSwipe),
                                       ],
                                     ),
                             ),
