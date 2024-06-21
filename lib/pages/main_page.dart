@@ -13,6 +13,7 @@ class _MainPageState extends State<MainPage> {
   bool isLoading = true;
   List<String> imageUrls = [];
   String _message = '';
+  bool _showMessage = false;
 
   final storage = FirebaseStorage.instance;
 
@@ -58,20 +59,28 @@ class _MainPageState extends State<MainPage> {
   void handleSwipe(String action) {
     setState(() {
       imageUrls.removeLast();
-      _showMessage(action);
+      _showMessageAction(action);
     });
   }
 
-  void _showMessage(String action) {
+  void _showMessageAction(String action) {
     String message = action == 'right' ? 'Image was loved <3' : 'Image was liked :)';
     setState(() {
       _message = message;
+      _showMessage = true;
     });
 
-    // Timer to hide the message after 1 seconds
-    Future.delayed(Duration(seconds: 2), () {
+    // Timer to hide the message after 1 second
+    Future.delayed(Duration(seconds: 1), () {
       setState(() {
-        _message = '';
+        _showMessage = false;
+      });
+
+      // Remove message text after the fade-out duration
+      Future.delayed(Duration(milliseconds: 500), () {
+        setState(() {
+          _message = '';
+        });
       });
     });
   }
@@ -169,7 +178,7 @@ class _MainPageState extends State<MainPage> {
                             ),
                             SizedBox(height: 20),
                             AnimatedOpacity(
-                              opacity: _message.isNotEmpty ? 1.0 : 0.0,
+                              opacity: _showMessage ? 1.0 : 0.0,
                               duration: Duration(milliseconds: 500),
                               child: Container(
                                 padding: EdgeInsets.all(10.0),
