@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-![Demo GIF](RMH_Gif.gif)
+<img src="RMH_Gif.gif" alt="Demo GIF" width="400"/>
 
 ## Getting Started
 
