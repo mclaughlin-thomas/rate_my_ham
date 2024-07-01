@@ -1,8 +1,7 @@
 # Rate My Ham
 **Author:** Thomas McLaughlin
 
-A new Flutter project.
-
+## Demo
 <img src="RMH_Gif.gif" alt="Demo GIF" width="400"/>
 
 ## Getting Started
