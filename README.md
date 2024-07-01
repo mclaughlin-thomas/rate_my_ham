@@ -1,4 +1,5 @@
-# rate_my_ham
+# Rate My Ham
+**Author:** Thomas McLaughlin
 
 A new Flutter project.
 
